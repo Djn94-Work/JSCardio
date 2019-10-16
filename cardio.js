@@ -171,21 +171,29 @@ function letterChanges(str) {
   let lastArray = [];
   let letter;
   for (i = 0; i < array.length; i++) {
-    if (i === 5) {
-      console.log(array[i]);
+    if (array[i] === " ") {
       newArray.push(" ");
     } else {
       newArray.push(array[i].charCodeAt(0) - 97);
     }
   }
-  console.log(newArray);
   for (i = 0; i < newArray.length; i++) {
-    if (i === 5) {
-      letter = newArray[i];
+    if (newArray[i] === " ") {
+      letter = String.fromCharCode(newArray[i]);
       lastArray.push(letter);
     } else {
       letter = String.fromCharCode(newArray[i] + 98);
-      lastArray.push(letter);
+      if (
+        letter === "i" ||
+        letter === "u" ||
+        letter === "e" ||
+        letter === "u" ||
+        letter === "a"
+      ) {
+        lastArray.push(letter.toUpperCase());
+      } else {
+        lastArray.push(letter);
+      }
     }
   }
   return lastArray.join("");
