@@ -106,16 +106,27 @@
 //   "All I wanted was em jordans with the blue suede on em"
 // );
 // console.log(output);
-// // CHALLENGE 2: ARRAY CHUNKING
-// // Split an array into chunked arrays of a specific length
-// // ex.chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3], [4, 5, 6], [7]];
-// // ex.chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2], [3, 4], [5, 6], [7]];
-// function chunkArray(arr, len) {
-//   let chunkedArray = [];
-//   for (i = 0; i < chunkArray.length; i++) {}
-// }
+// CHALLENGE 2: ARRAY CHUNKING
+// Split an array into chunked arrays of a specific length
+// ex.chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3], [4, 5, 6], [7]];
+// ex.chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2], [3, 4], [5, 6], [7]];
+function chunkArray(arr, len) {
+  console.log(arr);
+  console.log(len);
+  console.log(arr.length);
+  let arrayLen = arr.length;
+  let chunkedArray = [];
+  for (i = 0; i < arrayLen; i++) {
+    console.log(arr.length);
+    if (arr.length > 0) {
+      let spliced = arr.splice(0, len);
+      chunkedArray.push(spliced);
+    }
+  }
+  return chunkedArray;
+}
 
-// console.log(chunkArray([1, 2, 3, 4, 5, 6], 2));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 1));
 
 // //CHALLENGE 3
 
@@ -142,61 +153,39 @@
 // console.log(anagram);
 
 // // CHALLENGE 5: LETTER CHANGES
-// // Change every letter of the string to the one that follows it and capitalize the vowels
-// // Z should turn to A
-// // ex. 'hello there' === 'Ifmmp UIfsf'
 
-// // function letterChanges(str) {
-// //   let array = str.split("");
-// //   let newArray = [];
-// //   let lastArray = [];
-// //   for (i = 0; i < array.length; i++) {
-// //     if (!array[i] === " ") {
-// //       newArray.push(array[i].charCodeAt(0) - 97);
-// //     }
-// //   }
-// //   for (i = 0; i < newArray.length; i++) {
-// //     lastArray.push(String.fromCharCode(newArray[i] + 98));
-// //   }
-// //   return lastArray.join("");
-// // }
-// // console.log(letterChanges("Hello there"));
-// // Call Function
+// function letterChanges(str) {
+//   let array = str.split("");
+//   let newArray = [];
+//   let lastArray = [];
+//   let letter;
+//   for (i = 0; i < array.length; i++) {
+//     if (array[i] === " ") {
+//       newArray.push(" ");
+//     } else {
+//       newArray.push(array[i].charCodeAt(0) - 97);
+//     }
+//   }
+//   for (i = 0; i < newArray.length; i++) {
+//     if (newArray[i] === " ") {
+//       letter = String.fromCharCode(newArray[i]);
+//       lastArray.push(letter);
+//     } else {
+//       letter = String.fromCharCode(newArray[i] + 98);
+//       if (
+//         letter === "i" ||
+//         letter === "u" ||
+//         letter === "e" ||
+//         letter === "u" ||
+//         letter === "a"
+//       ) {
+//         lastArray.push(letter.toUpperCase());
+//       } else {
+//         lastArray.push(letter);
+//       }
+//     }
+//   }
+//   return lastArray.join("");
+// }
 
-// // console.log(output);
-
-function letterChanges(str) {
-  let array = str.split("");
-  let newArray = [];
-  let lastArray = [];
-  let letter;
-  for (i = 0; i < array.length; i++) {
-    if (array[i] === " ") {
-      newArray.push(" ");
-    } else {
-      newArray.push(array[i].charCodeAt(0) - 97);
-    }
-  }
-  for (i = 0; i < newArray.length; i++) {
-    if (newArray[i] === " ") {
-      letter = String.fromCharCode(newArray[i]);
-      lastArray.push(letter);
-    } else {
-      letter = String.fromCharCode(newArray[i] + 98);
-      if (
-        letter === "i" ||
-        letter === "u" ||
-        letter === "e" ||
-        letter === "u" ||
-        letter === "a"
-      ) {
-        lastArray.push(letter.toUpperCase());
-      } else {
-        lastArray.push(letter);
-      }
-    }
-  }
-  return lastArray.join("");
-}
-
-console.log(letterChanges("hello there"));
+// console.log(letterChanges("hello there"));
